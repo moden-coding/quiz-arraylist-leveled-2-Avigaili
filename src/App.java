@@ -1,3 +1,4 @@
+
 /**
     * You are going to write code to store a list of participant names for a 
     * local event. You will create an ArrayList for Strings, then accept user 
@@ -23,9 +24,39 @@
     * ignored, and no change is made to the list.
 */
 import java.util.*;
+
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+        // System.out.println("Hello, World!");
         Scanner scanner = new Scanner(System.in);
+        ArrayList<String> names = new ArrayList<>();
+        while (true) {
+            String na = String.valueOf(scanner.nextLine());
+            if (na.equals("end")) {
+                break;
+
+            }
+            if (names.contains(na)) {
+                System.out.println("Duplicate! Remove person?");
+                String answer = scanner.nextLine();
+                if (answer.equals("yes")) {
+                    for (int i = 0; i < names.size(); i++) {
+                        if (names.get(i).equals(na)) {
+                            names.remove(i);
+                        }
+                    }
+                }
+            } else {
+                names.add(na);
+            }
+
+        }
+        System.out.println("Names: ");
+        for (String N : names) {
+            System.out.println(N);
+
+        }
+
     }
+
 }
